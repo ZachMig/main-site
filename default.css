@@ -1,0 +1,22 @@
+body {
+    margin: 0;
+    padding: 2% 2% 2% 2%;
+    color: rgb(192, 186, 178);
+    background-color: rgb(39, 42, 44);
+    font-size: 1.25em;
+}
+
+#fetchbutton {
+    color: black;
+    background-color: lightgray;
+}
+
+select {
+    color: black;
+    background-color: lightgrey;
+}
+
+
+.w-full {
+    width: 100%
+}
