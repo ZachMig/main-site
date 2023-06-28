@@ -3,6 +3,7 @@
 <head>
   <title>Zachary Migliorini</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script src="script.js"></script>
 </head>
 <body>
   <header>
@@ -12,7 +13,7 @@
   <nav id="navbar">
     <ul>
       <li><a href="#description">Description</a></li>
-      <li><a href="#projects">Projects</a></li>
+      <li><a href="#project">Project</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a href="resume_zmigliorini_2023.pdf" target="_blank">Resume</a></li>
@@ -23,14 +24,63 @@
   <section id="description">
     <h2>Description</h2>
     <div class="section-content">
-      I am an NY-based software developer looking for work in an entry or junior-level position. I previously worked an 8 month full-time internship at Thomson Reuters, but have been working in an unrelated field since then. Since then, I have been keeping up on my technical skills, and am excited to get back into professional development.
+      I am an NY-based software developer looking for work in an entry or junior-level position. I previously worked an 8 month full-time internship at Thomson Reuters, but have been working in an unrelated field since then. <br><br>I have been keeping up on my technical skills, and am excited to get back into professional development.
     </div>
   </section>
   
-  <section id="projects">
-    <h2>Projects</h2>
+  <section id="project">
+    <h2>REST API</h2>
+    <div class="centered">
+      <input id="fetchButton" type="submit" value="Fetch"/>
+      <table id="resultTable" border=1 class="table table-borderless table-striped table-earning">
+      <thead>
+        <tr>
+          <th>Country Name</th>
+          <th>Population (M)</th>
+          <th>Size (km2)</th>
+          <th>Birth Rate</th>
+          <th>Avg Elevation (m)</th>
+          <th>Landlocked</th>
+          <th>GDP (M)</th>
+          <th>Import Value (M)</th>
+          <th>Export Value (M)</th>
+          <th>Standing Army (K)</th>
+          <th>Naval Displacement (Tons)</th>
+          <th># Warplanes</th>
+          <th>Continent</th>
+          <th>Religion</th>
+          <th>Ethnicity</th>
+          <th>Language</th>
+          <th>Government</th>
+          <th>Trade Bloc</th>
+          <th>Alliance</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
     <div class="section-content">
-
+      <p>
+      This is a demonstration of a <b>REST</b> server connected to a database, and this client webpage to use the service.<br>
+      The REST service is a <b>Spring Boot</b> project written in <b>Java</b>.<br>
+      The data is contained in a <b>MySQL</b> database which is hooked up to the REST service via <b>Hibernate ORM</b>.<br>
+      The REST service and database are both hosted on an <b>AWS EC2</b> instance.<br>
+      Routing for zachmig.com and api.zachmig.com are handled by the <b>AWS Route 53</b> service.<br>
+      This page is contained in an <b>AWS S3</b> bucket. Requests to www.zachmig.com are passed to this bucket as well.<br>
+      </p>
+      <p>
+        This page represents the client side.<br>
+        There isn't anything on the front end in the way of exception handling or compatibility.<br>
+        The Javascript waits for the user to select a country from the dropdown and uses the input to build a URL for a fetch() call to www.api.zachmig.com.<br>
+        The JSON response is then loaded into a table and displayed on the page.<br>
+      </p>
+      <p>
+        The fetch() call is made to "http://www.api.zachmig.com:8080/country?name=United_States_of_America".<br>
+        This URL points to an endpoint of a REST API.<br>
+        Upon receiving the GET request, the REST service builds a SELECT query using the country name and runs it against the database.<br>
+        The results of the query are serialized into objects and then finally into a JSON response which is served to the requester. 
+      </p>
+    </div>
+  </div>
       
     </div>
   </section>
@@ -42,17 +92,28 @@
       <br><br>
       I am comfortable using Git from the command line, so changing IDE would not be an issue for me.
       <br><br>
-      With some help from Google, I can do basic frontend work as well. I am certainly not insistent on backend work exclusively, and would be excited to end up in a full-stack position.
+      Backend work is my strength, but I would be more than happy to end up in a frontend or fullstack position.
     </div>
   </section>
-  
+
+  <section>
+    <h2>Other Work</h2> 
+    <div class="section-content">
+      Having spent several years working in luxury goods sales, I have built a range of relevant, transferable skills that supplement my technical ability.<br><br>
+      My workdays were spent in a high-pressure environment with multiple overlapping deadlines, and so the first things I had to learn were teamwork and efficient task management. 
+      Meeting these deadlines typically involved disruptions that were out of our control, so I learned to quickly adapt to changing circumstances, and to move forward despite
+        unplanned setbacks.
+      Working with customers made me into an effective communicator, and when speaking, I can filter out information that is not relevant to my audience, and focus on what's
+        important.<br><br>
+      In short, I can keep a level head in any situation, understand which tasks and deadlines are most crucial, and deliver quality results as a part of any team.
+    </div>
+  </section>
+    
   <section id="contact">
     <h2>Contact</h2>
     <div>
       <a href = "mailto: zmigliorini@gmail.com">zmigliorini@gmail.com</a>
     </div>
   </section>
-
-  <script src="script.js"></script>
 </body>
 </html>
