@@ -5,7 +5,7 @@ window.onload = function(){
 
   const getData = function() {
     event.preventDefault();
-    fetch("https://www.api.zachmig.com:8080/country?name=United_States_of_America")
+    fetch("https://api.zachmig.com:8080/country?name=United_States_of_America")
       .then(res => res.json())
       .then(data => {
         if (document.getElementById("resultTable").rows.length > 1) {
