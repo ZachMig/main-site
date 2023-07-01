@@ -22,14 +22,14 @@ body {
 
 .header h1 {
   font-size: 4vw;
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
   margin-top: 25vh;
   margin-left: 10vw;
 }
 
 .header p {
   font-size: 1vw;
-  margin-bottom: 20px;
+  margin-bottom: 1vh;
   margin-top: 0vh;
   margin-left: 10vw;
   max-width: 33vw;
@@ -92,7 +92,6 @@ p.section-text {
   flex: 1; 
 }
 
-
 .fetch-container {
   display: flex;
   align-items: center;
@@ -118,7 +117,6 @@ p.section-text {
   border-collapse: collapse;
   margin: 25px 0;
   font-size: 1em;
-  font-family: sans-serif;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 2px;
 }
@@ -159,4 +157,8 @@ p.section-text {
 
 .custom-input:hover {
   background-color: #097be4;
+}
+
+.email {
+  color: inherit;
 }
