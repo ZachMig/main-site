@@ -6,28 +6,67 @@
     <script src="script.js"></script>
   </head>
   <body>
+
     <div class="header">
       <h1>Zachary Migliorini</h1>
-      <p>I am a New York-based software developer looking for work in an entry or junior-level position. I previously worked an 8 month full-time internship at Thomson Reuters, but have been working in an unrelated field since then. <br><br>
+      <p>I am a New York-based software developer looking for work in an entry or junior-level position.<br><br>
+      I previously worked an 8 month full-time internship at Thomson Reuters, but have been working in an unrelated field since then.<br><br>
       I have been keeping up on my technical skills, and am excited to get back into professional development.
       </p>
     </div>
-    
+
+
     <div class="content">
 
       <div class="nav">
-        <a href="#project">Project</a>
         <a href="#skills">Skills</a>
+        <a href="#otherwork">Other Work</a>
+        <a href="#project">Project</a>
         <a href="#contact">Contact</a>
         <a href="resume_zmigliorini_2023.pdf" target="_blank">Resume</a>
         <a href="https://www.github.com/zachmig" target="_blank">GitHub</a>
       </div>
-    
-      <section id="project" class='section'>
-        <div class="centered">
-          <h2>REST API</h2>
-          <input id="fetchButton" type="submit" value="Fetch"/>
-          <table id="resultTable" border=1 class="table table-borderless table-striped table-earning">
+
+      <div class="section-container" id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-text">I am most comfortable working in core Java. Eclipse is my IDE of choice but I would be happy to learn any others. 
+          I can definitely handle database work and SQL as well, and have experience using JDBC and Hibernate.
+          <br><br>
+          I am comfortable using Git from the command line, so changing IDE would not be an issue for me.
+          <br><br>
+          Backend work is my strength, but I would be more than happy to end up in a frontend or fullstack position.<br><br>
+        </p>
+      </div>
+
+      <div class="section-container" id="otherwork">
+        <h2 class="section-title">Other Work</h2>
+        <p class="section-text">
+          Having spent several years working in luxury goods sales, I have built a range of relevant, transferable skills that supplement my technical ability.<br><br>
+          My workdays were spent in a high-pressure environment with multiple overlapping deadlines, and so the first things I had to learn were teamwork and efficient task management. 
+          Meeting these deadlines typically involved disruptions that were out of our control, so I learned to quickly adapt to changing circumstances, and to move forward despite
+            unplanned setbacks.
+          Working with customers made me into an effective communicator, and when speaking, I can filter out information that is not relevant to my audience, and focus on what's
+            important.<br><br>
+          In short, I can keep a level head in any situation, understand which tasks and deadlines are most crucial, and deliver quality results as a part of any team.
+        </p>
+      </div>
+
+      <div class="section-container" id="project">
+        <h2 class="section-title">REST API</h2>
+        <p class="section-text">
+
+          I have built a Spring project which runs a REST-style server. The application is hooked up to a MySQL database via Hibernate. 
+          The application and the database are running on an AWS EC2 instance. This instance is behind an AWS application load balancer (ALB).<br><br>
+          The Spring application hosts an endpoint which takes a GET request with a name variable and runs a SELECT query against the database, serving the
+            result as a JSON. This endpoint only works over HTTP, but the response content must be served over HTTPS to be used by a secure client page. 
+            The ALB resolves this by holding the SSL certificate, taking HTTPS requests from clients, and then handling communication with the REST endpoint.
+        </p>
+      </div>
+
+      <div class="fetch-container">
+        <input id="fetchButton" class="custom-input" type="submit" value="Fetch"/>
+        <div class="table-container">
+          <table id="resultTable" border=1 class="styled-table">
             <thead>
               <tr>
                 <th>Country Name</th>
@@ -52,58 +91,22 @@
               </tr>
             </thead>
             <tbody id="tableBody"></tbody>
-        </table>
-      </div>
-      <div class="section-content">
-        <p>
-        This is a demonstration of a <b>REST</b> server connected to a database, and this client webpage to use the service.<br>
-        The REST service is a <b>Spring Boot</b> project written in <b>Java</b>.<br>
-        The data is contained in a <b>MySQL</b> database which is hooked up to the REST service via <b>Hibernate ORM</b>.<br>
-        The REST service and database are both hosted on an <b>AWS EC2</b> instance.<br>
-        Routing for zachmig.com and api.zachmig.com are handled by the <b>AWS Route 53</b> service.<br>
-        This page is contained in an <b>AWS S3</b> bucket. Requests to www.zachmig.com are passed to this bucket as well.<br>
-        </p>
-        <p>
-          This page represents the client side.<br>
-          There isn't anything on the front end in the way of exception handling or compatibility.<br>
-          The Javascript waits for the user to select a country from the dropdown and uses the input to build a URL for a fetch() call to www.api.zachmig.com.<br>
-          The JSON response is then loaded into a table and displayed on the page.<br>
-        </p>
-        <p>
-          The fetch() call is made to "http://www.api.zachmig.com:8080/country?name=United_States_of_America".<br>
-          This URL points to an endpoint of a REST API.<br>
-          Upon receiving the GET request, the REST service builds a SELECT query using the country name and runs it against the database.<br>
-          The results of the query are serialized into objects and then finally into a JSON response which is served to the requester. 
-        </p>
-      </div>
-    </section>
-      
-      <section id="skills" class='section'>
-        <div class="section-content">
-          <h2>Skills</h2>
-          I am most comfortable working in core Java. Eclipse is my IDE of choice but I would be happy to learn any others. I can definitely handle database work and SQL as well, and have experience using JDBC and Hibernate.
-          <br><br>
-          I am comfortable using Git from the command line, so changing IDE would not be an issue for me.
-          <br><br>
-          Backend work is my strength, but I would be more than happy to end up in a frontend or fullstack position.<br><br>
-          <h2>Other Work</h2> 
-          Having spent several years working in luxury goods sales, I have built a range of relevant, transferable skills that supplement my technical ability.<br><br>
-          My workdays were spent in a high-pressure environment with multiple overlapping deadlines, and so the first things I had to learn were teamwork and efficient task management. 
-          Meeting these deadlines typically involved disruptions that were out of our control, so I learned to quickly adapt to changing circumstances, and to move forward despite
-            unplanned setbacks.
-          Working with customers made me into an effective communicator, and when speaking, I can filter out information that is not relevant to my audience, and focus on what's
-            important.<br><br>
-          In short, I can keep a level head in any situation, understand which tasks and deadlines are most crucial, and deliver quality results as a part of any team.
+          </table>
         </div>
-      </section>
-        
-      <section id="contact" class='section'>
-        <div class='section-content'>
-          <h2>Contact</h2>
+      </div>
+
+      <div class="section-container" id="contact">
+        <h2 class="section-title">Contact</h2>
+        <p class="section-text">
           <a href = "mailto: zmigliorini@gmail.com">zmigliorini@gmail.com</a>
-        </div>
-      </section>
+        </p>
+      </div>
 
     </div>
+
+
+
   </body>
 </html>
+
+
