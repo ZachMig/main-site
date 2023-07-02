@@ -1,3 +1,14 @@
+body, html {
+  height: 100vh;
+}
+
+/* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+  .header {
+    background-attachment: scroll;
+  }
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -18,6 +29,15 @@ body {
   text-align: left;
   position: relative;
   box-shadow: 0 1vw 2vw rgba(0, 0, 0, .4);
+
+  /*Parallax effect from W3Schools*/
+  /* Full height */
+  height: 100vh;
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header h1 {
