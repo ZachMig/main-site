@@ -178,3 +178,15 @@ p.section-text {
 .email {
   color: inherit;
 }
+
+.item {
+  margin: 5px;
+  padding: 10px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+#resultsContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
