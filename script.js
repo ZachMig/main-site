@@ -24,6 +24,23 @@ window.onload = function(){
   fetchButton.addEventListener("click", getData)
 
 
+  //test data for neo4j
+  const response = ["Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      ,"Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
+      ];
+  const resultsContainer = document.getElementById("resultsContainer");
+  response.forEach((item) => {
+    const element = document.createElement("div");
+    element.classList.add("item");
+    element.textContent = item;
+    resultsContainer.appendChild(element);
+  });
+  //end neo4j logic
+
 };
 
 
