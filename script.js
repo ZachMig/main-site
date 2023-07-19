@@ -24,6 +24,18 @@ window.onload = function(){
   fetchButton.addEventListener("click", getData)
 
 
+  //Start neo4j
+
+  const inputField = document.getElementById("inputField");
+  const submitButton = document.getElementById("submitButton");
+
+  submitButton.addEventListener("click", function() {
+    const inputValue = inputField.value;
+    // Use the inputValue in your JavaScript code for further processing
+    // For example, you can pass it to a fetch() call or perform any other action
+    console.log("Submitted value:", inputValue);
+  });
+
   //test data for neo4j
   const response = ["Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
       "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
