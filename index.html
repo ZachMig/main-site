@@ -105,7 +105,18 @@
       </div>
 
       <div class="section-container">
-        <h2 class="section-title">Food Pairs</h2>
+        <h2 class="section-title">
+          <label for="inputField">Enter a value:</label>
+          <input type="text" id="inputField" list="suggestions">
+          <button id="submitButton">Submit</button>
+
+          <datalist id="suggestions">
+            <option value="Salmon">
+            <option value="Soy Sauce">
+            <option value="Tuna">
+            <option value="Garlic">
+          </datalist>
+        </h2>
         <div class="section-text" id="resultsContainer">
         </div>
       </div>

@@ -190,3 +190,7 @@ p.section-text {
   display: flex;
   flex-wrap: wrap;
 }
+
+#inputField::-webkit-calendar-picker-indicator {
+  display: none;
+}
