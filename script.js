@@ -27,30 +27,30 @@ window.onload = function(){
   //Start neo4j
 
   const inputField = document.getElementById("inputField");
-  const submitButton = document.getElementById("submitButton");
+  const fpButton = document.getElementById("fpButton");
+  const resultsContainer = document.getElementById("resultsContainer")
 
-  submitButton.addEventListener("click", function() {
+  fpButton.addEventListener("click", function() {
+    resultsContainer.innerHTML = '';
     const inputValue = inputField.value;
-    // Use the inputValue in your JavaScript code for further processing
-    // For example, you can pass it to a fetch() call or perform any other action
     console.log("Submitted value:", inputValue);
+    const url = 'http://localhost:8080/food?name=' + inputValue;
+    console.log(url)
+
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+      data.sort().forEach((item) => {
+        const element = document.createElement("div");
+        element.classList.add("item");
+        element.textContent = item;
+        resultsContainer.appendChild(element);
+      });
+
+      })
+      .catch(error => console.log(error))
   });
 
-  //test data for neo4j
-  const response = ["Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      ,"Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic", "Salmon", "Soy Sauce", "Tuna", "Garlic",
-      ];
-  const resultsContainer = document.getElementById("resultsContainer");
-  response.forEach((item) => {
-    const element = document.createElement("div");
-    element.classList.add("item");
-    element.textContent = item;
-    resultsContainer.appendChild(element);
-  });
   //end neo4j logic
 
 };
