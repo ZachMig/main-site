@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 import './AutoComplete.css';
 
 function AutoComplete() {
+
+  function toNormalForm(str) {
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+  }
+
   const [suggestions, setSuggestions] = useState([]);
   const [userInput, setUserInput] = useState('');
 
@@ -22,14 +27,14 @@ function AutoComplete() {
   };
 
   const filteredSuggestions = suggestions.filter(suggestion =>
-    suggestion.includes(userInput)
+    toNormalForm(suggestion).toLowerCase().includes(toNormalForm(userInput).toLowerCase())
   );
 
   return (
     <>
       <div className="autocomplete">
         <h2 className="section-title">food pairings</h2>
-        <div>
+        <div className="dropdown-wrapper">
           <input
             type="text"
             value={userInput}
@@ -46,12 +51,12 @@ function AutoComplete() {
           )}
         </div>
       </div>
-      <p className="section-text">
+      <div className="section-text">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
         Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
         Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
+      </div>
     </>
   );
 }
