@@ -10,7 +10,7 @@ function AutoComplete() {
     fetch('http://localhost:8080/foods')
       .then(response => response.json())
       .then(apiSuggestions => {
-        setSuggestions(apiSuggestions);
+        setSuggestions(apiSuggestions.sort());
       })
       .catch(error => {
         console.error('Error fetching suggestions:', error);
@@ -28,20 +28,23 @@ function AutoComplete() {
   return (
     <>
       <div className="autocomplete">
-      <h2 className="section-title">food pairings</h2>
-        <input
-          type="text"
-          value={userInput}
-          onChange={handleInputChange}
-          placeholder="Start typing..."
-        />
-        {userInput && (
-          <ul className="suggestions">
-            {filteredSuggestions.map((suggestion, index) => (
-              <li key={index}>{suggestion}</li>
-            ))}
-          </ul>
-        )}
+        <h2 className="section-title">food pairings</h2>
+        <div>
+          <input
+            type="text"
+            value={userInput}
+            onChange={handleInputChange}
+            placeholder="food to pair"
+            id="food-input"
+          />
+          {userInput && (
+            <ul className="suggestions">
+              {filteredSuggestions.map((suggestion, index) => (
+                <li key={index}>{suggestion}</li>
+              ))}
+            </ul>
+          )}
+        </div>
       </div>
       <p className="section-text">
         TESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTESTTEST
