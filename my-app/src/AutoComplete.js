@@ -7,6 +7,15 @@ function AutoComplete() {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
   }
 
+  const handleSubmit = event => {
+    event.preventDefault(); // Prevent the default form submission behavior
+    // Handle the submission logic here
+    console.log('Submitted:', userInput);
+
+
+  };
+
+
   const [suggestions, setSuggestions] = useState([]);
   const [userInput, setUserInput] = useState('');
 
@@ -26,6 +35,10 @@ function AutoComplete() {
     setUserInput(event.target.value);
   };
 
+  const handleSuggestionClick = suggestion => {
+    setUserInput(suggestion);
+  };
+
   const filteredSuggestions = suggestions.filter(suggestion =>
     toNormalForm(suggestion).toLowerCase().includes(toNormalForm(userInput).toLowerCase())
   );
@@ -35,27 +48,27 @@ function AutoComplete() {
       <div className="autocomplete">
         <h2 className="section-title">food pairings</h2>
         <div className="dropdown-wrapper">
-          <input
-            type="text"
-            value={userInput}
-            onChange={handleInputChange}
-            placeholder="food to pair"
-            id="food-input"
-          />
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              value={userInput}
+              onChange={handleInputChange}
+              placeholder="food to pair"
+              id="food-input"
+            />
+            <input id="food-button" className="custom-input" type="submit" value="Submit"/>
+          </form>
           {userInput && (
             <ul className="suggestions">
               {filteredSuggestions.map((suggestion, index) => (
-                <li key={index}>{suggestion}</li>
+                <li key={index} onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</li>
               ))}
             </ul>
           )}
         </div>
       </div>
-      <div className="section-text">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+      <div id="results-container" className="section-text">
+        
       </div>
     </>
   );

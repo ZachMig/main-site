@@ -101,7 +101,7 @@ body {
   font-weight: normal;
   color: #555;
   min-width: 20vw;
-  margin-right: 2vw;
+  /*margin-right: 2vw;*/
   text-transform: lowercase;
 }
 
@@ -110,6 +110,7 @@ body {
   font-size: 1vw;
   line-height: 1.5; 
   flex: 1; 
+  padding: 1vw;
 }
 
 .fetch-container {
@@ -167,8 +168,9 @@ body {
   color: #000000;
   background-color: #f3f3f3;
   border: solid;
-  border-radius: 4px;
+  border-radius: 0px;
   transition: background-color 0.3s ease;
+  border-color: grey;
 }
 
 .custom-input:hover {
@@ -184,10 +186,12 @@ body {
   padding: 10px;
   background-color: lightgray;
   border-radius: 5px;
+  display: inline-block;
+  flex-wrap: wrap;
 }
 
 #resultsContainer {
-  display: flex;
+  display: inline-flex;
   flex-wrap: wrap;
 }
 

@@ -5,6 +5,23 @@
 
 #food-input {
   width: 12vw;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  border: solid;
+  border-radius: 0px;
+  border-right-width: 0px;
+  border-color: grey;
+}
+
+#food-submit {
+  cursor: pointer;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  color: #000000;
+  background-color: #f3f3f3;
+  border: solid;
+  border-radius: 0px;
+  transition: background-color 0.3s ease;
 }
 
 .suggestions {
@@ -12,7 +29,7 @@
   top: 100%;
   text-align: center;
   max-height: 200px; 
-  width: 12.35vw;
+  width: 19.65vw;
   background-color: #fff;
   border: 1px solid #ccc;
   list-style: none;
@@ -21,7 +38,7 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   overflow-y: auto; /* Enable vertical scroll when content exceeds max-height */
   display: block;
-  margin-left: 21.6%;
+  margin-left: .5%;
 }
 
 .suggestions li {
@@ -34,4 +51,5 @@
 
 .dropdown-wrapper {
   text-align: center;
+  margin-top: .5vw;
 }
