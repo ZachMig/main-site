@@ -25,11 +25,10 @@ window.onload = function(){
 
 
   //Start neo4j
-  /**
-  const inputField = document.getElementById("inputField");
-  const fpButton = document.getElementById("fpButton");
-  const resultsContainer = document.getElementById("resultsContainer")
-
+  
+  const inputField = document.getElementById("food-input");
+  const fpButton = document.getElementById("food-button");
+  const resultsContainer = document.getElementById("results-container")
   fpButton.addEventListener("click", function() {
     resultsContainer.innerHTML = '';
     const inputValue = inputField.value;
@@ -50,7 +49,7 @@ window.onload = function(){
       })
       .catch(error => console.log(error))
   });
-  */
+  
   //end neo4j logic
 
 };
