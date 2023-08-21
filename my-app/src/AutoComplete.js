@@ -5,38 +5,83 @@ function AutoComplete() {
 
   function toNormalForm(str) {
     return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+
   }
 
-  const handleSubmit = event => {
-    event.preventDefault(); // Prevent the default form submission behavior
-    // Handle the submission logic here
-    console.log('Submitted:', userInput);
-
-
-  };
-
+  function fetchFoods(userInput) {
+    const url = `http://localhost:8080/food?name=${userInput}`;
+    const resultsContainer = document.getElementById("results-container") 
+    if (resultsContainer != null) {
+      resultsContainer.innerHTML = '';
+    }
+    if (normalizedSuggestions.includes(toNormalForm(userInput))) {
+      console.log("Matching food found, running API query on url:" + url);
+      fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        data.sort().forEach((item) => {
+          const element = document.createElement("div");
+          element.classList.add("item");
+          element.textContent = item;
+          //element.addEventListener('onclick', populateInput(item));
+          resultsContainer.appendChild(element);
+        })
+      });
+    } else {
+      console.log("Non-matching input: " + userInput);
+    }
+  }
 
   const [suggestions, setSuggestions] = useState([]);
+  const [normalizedSuggestions, setNormalizedSuggestions] = useState([]);
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    // Fetch suggestions on component mount
     fetch('http://localhost:8080/foods')
       .then(response => response.json())
       .then(apiSuggestions => {
         setSuggestions(apiSuggestions.sort());
       })
       .catch(error => {
-        console.error('Error fetching suggestions:', error);
+        console.error('Error while fetching food list.', error);
       });
   }, []);
+
+  useEffect(() => {
+    //Chain once when the prior useEffect runs, to populate normalized array to reduce number of api calls
+    setNormalizedSuggestions(suggestions.map((food) => toNormalForm(food)));
+  }, [suggestions]);
+
+  useEffect(() => {
+    fetchFoods(userInput);
+  }, [userInput]);
 
   const handleInputChange = event => {
     setUserInput(event.target.value);
   };
 
-  const handleSuggestionClick = suggestion => {
-    setUserInput(suggestion);
+  //Stop website from reload on enter key press
+  const handleKeyDown = event => {
+    /*if (event.key === 'ArrowDown') {
+      event.preventDefault();
+      setHighlightedIndex(prevIndex =>
+        Math.min(prevIndex + 1, suggestions.length - 1)
+      );
+    } else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      setHighlightedIndex(prevIndex => Math.max(prevIndex - 1, -1));
+    } else */if (event.key === 'Enter') {
+      event.preventDefault();
+      //if (highlightedIndex >= 0) {
+      //  setUserInput(suggestions[highlightedIndex]);
+      //  setHighlightedIndex(-1);
+      //}
+    }
+  };
+
+  //Populate the text input field if user clicks an autocomplete suggestion
+  const populateInput = food => {
+    setUserInput(food);
   };
 
   const filteredSuggestions = suggestions.filter(suggestion =>
@@ -48,20 +93,21 @@ function AutoComplete() {
       <div className="autocomplete">
         <h2 className="section-title">food pairings</h2>
         <div className="dropdown-wrapper">
-          <form onSubmit={handleSubmit}>
+          <form>
             <input
               type="text"
               value={userInput}
               onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
               placeholder="food to pair"
               id="food-input"
             />
-            <input id="food-button" className="custom-input" type="submit" value="Submit"/>
+            
           </form>
           {userInput && (
             <ul className="suggestions">
               {filteredSuggestions.map((suggestion, index) => (
-                <li key={index} onClick={() => handleSuggestionClick(suggestion)}>{suggestion}</li>
+                <li key={index} onClick={() => populateInput(suggestion)}>{suggestion}</li>
               ))}
             </ul>
           )}

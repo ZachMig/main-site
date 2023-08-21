@@ -1,5 +1,5 @@
 window.onload = function(){
-
+  console.log("LOADING WHOLE DOCUMENT")
   document.getElementById("resultTable").style.display = "none";
   const fetchButton = document.querySelector("#fetchButton")
 
@@ -22,35 +22,6 @@ window.onload = function(){
   }
 
   fetchButton.addEventListener("click", getData)
-
-
-  //Start neo4j
-  
-  const inputField = document.getElementById("food-input");
-  const fpButton = document.getElementById("food-button");
-  const resultsContainer = document.getElementById("results-container")
-  fpButton.addEventListener("click", function() {
-    resultsContainer.innerHTML = '';
-    const inputValue = inputField.value;
-    console.log("Submitted value:", inputValue);
-    const url = 'http://localhost:8080/food?name=' + inputValue;
-    console.log(url)
-
-    fetch(url)
-      .then(res => res.json())
-      .then(data => {
-      data.sort().forEach((item) => {
-        const element = document.createElement("div");
-        element.classList.add("item");
-        element.textContent = item;
-        resultsContainer.appendChild(element);
-      });
-
-      })
-      .catch(error => console.log(error))
-  });
-  
-  //end neo4j logic
 
 };
 
