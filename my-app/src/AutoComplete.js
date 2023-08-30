@@ -9,7 +9,7 @@ function AutoComplete() {
   }
 
   function fetchFoods(userInput) {
-    const url = `http://localhost:8080/food?name=${userInput}`;
+    const url = `https://api.zachmig.com:8443/food?name=${userInput}`;
     const resultsContainer = document.getElementById("results-container") 
     if (resultsContainer != null) {
       resultsContainer.innerHTML = '';
@@ -37,7 +37,7 @@ function AutoComplete() {
   const [userInput, setUserInput] = useState('');
 
   useEffect(() => {
-    fetch('http://localhost:8080/foods')
+    fetch('https://api.zachmig.com:8443/foods')
       .then(response => response.json())
       .then(apiSuggestions => {
         setSuggestions(apiSuggestions.sort());

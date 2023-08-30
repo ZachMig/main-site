@@ -23,7 +23,7 @@
       <div class="nav" id="navbar">
         <a href="#skills">Skills</a>
         <a href="#otherwork">Other Work</a>
-        <a href="#project">Project</a>
+        <a href="#project">Projects</a>
         <a href="#contact">Contact</a>
         <a href="resume_zmigliorini_2023.pdf" target="_blank">Resume</a>
         <a href="https://www.github.com/zachmig" target="_blank">GitHub</a>
@@ -57,7 +57,7 @@
       <div class="section-container" id="project">
         <h2 class="section-title">REST API</h2>
         <p class="section-text">
-
+          Note: I have taken this project down from AWS and am currently replacing it with another REST server with expanded capabilities.<br><br>
           I have built a Spring project which runs a REST-style server. The application is hooked up to a MySQL database via Hibernate. 
           The application and the database are running on an AWS EC2 instance. This instance is behind an AWS application load balancer (ALB).<br><br>
           The Spring application hosts an endpoint which takes a GET request with a name variable and runs a SELECT query against the database, serving the
@@ -99,10 +99,15 @@
       </div>
 
       <div class="section-container">
-        <h2 class="section-title">WIP</h2>
+        <h2 class="section-title">Neo4j Data Presented With React.js</h2>
         <p class="section-text">
-          I am currently working on another Spring application which will serve data from a Neo4j graph database over a REST endpoint.<br><br>
-          It will be hosted on AWS as well.
+          This page is mostly hardcoded, but the div element below is managed by React. <br><br>
+          I have an AWS EC2 instance running a Spring REST server which is hooked up to a Neo4j graph database. 
+          The data itself is a large pool of different foods, with links between foods that pair well together.<br><br>
+          Upon initial load, this page queries the server for the full list of foods, and uses them as autocomplete 
+          suggestions in the text input field below. When the user inputs a food that matches one on the list, a 
+          fetch call is made to the server, which returns the list of pairing foods. React then updates the div
+          to display those results.
         </p>
       </div>
 
