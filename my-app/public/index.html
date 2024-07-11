@@ -11,9 +11,11 @@
 
     <div class="header">
       <h1>Zachary Migliorini</h1>
-      <p>I am a New York-based software developer looking for work in an entry or junior-level position.<br><br>
-      I previously worked an 8 month full-time internship at Thomson Reuters, but have been working in an unrelated field since then.<br><br>
-      I have been keeping up on my technical skills, and am excited to get back into professional development.
+      <p>New York-based software developer looking for an entry level position or internship.<br><br>
+      I previously worked a one year full-time software engineering internship at Thomson Reuters, 
+        but have been working in an unrelated field since then.<br><br>
+      My recent projects are various types of RESTful APIs built in Spring, hooked up to a database and consumed by a client page, 
+        with everything being hosted on AWS.
       </p>
     </div>
 
@@ -30,14 +32,14 @@
       </div>
 
       <div class="section-container" id="skills">
-        <h2 class="section-title">Technical Skills<br>and Internship</h2>
-        <p class="section-text">I am most comfortable working in core Java. Eclipse is my IDE of choice but I would be happy to learn any others. 
-          I can definitely handle database work and SQL as well, and have experience using JDBC and Hibernate.
+        <h2 class="section-title">Technical Skills</h2>
+        <p class="section-text">
+          I am most comfortable working in back-end Java/SQL and have been teaching myself to use Spring as well (Web, Data, Security, Test).
           <br><br>
-          I am comfortable using Git from the command line, so changing IDE would not be an issue for me.
+          Backend work is my stronger suit, but my recent projects have all been full-stack, and so I have been learning basic front-end  
+            (React.js) and teaching myself how to hook everything up.
           <br><br>
-          Backend work is my strength, but I would be more than happy to end up in a frontend or fullstack position.<br><br>
-          My internship was mostly updating Java code which was part of a workflow to convert documents between Word and XML formats. Changing requirements meant pieces of code would have to be updated to account for different XML tags or expected content. The extra time I had was spent pitching ways to improve our workflow to my supervisor, and I ended up independently building out two of those proposals.
+          Hosting these projects has given me some exposure to the basic AWS services (EC2, S3, Route 53, ACM, Cloudfront).
         </p>
       </div>
 
@@ -55,14 +57,13 @@
       </div>
 
       <div class="section-container" id="project">
-        <h2 class="section-title">REST API</h2>
+        <h2 class="section-title">Basic RESTful API Demo</h2>
         <p class="section-text">
-          Note: I have taken this project down from AWS and am currently replacing it with another REST server with expanded capabilities.<br><br>
-          I have built a Spring project which runs a REST-style server. The application is hooked up to a MySQL database via Hibernate. 
-          The application and the database are running on an AWS EC2 instance. This instance is behind an AWS application load balancer (ALB).<br><br>
-          The Spring application hosts an endpoint which takes a GET request with a name variable and runs a SELECT query against the database, serving the
-            result as a JSON. This endpoint only works over HTTP, but the response content must be served over HTTPS to be used by this secure client page. 
-            The ALB resolves this by holding the SSL certificate, taking HTTPS requests from clients, and then handling communication with the REST endpoint.
+          <b>Note: I have taken this project down from AWS and am currently replacing it with something with full CRUD and user authentication.
+          </b><br><br>
+          This was a basic client which would send a GET request to a RESTful API built with Spring which lived on an AWS EC2 hooked up to a 
+            MySQL database. A lookup would be performed based on the data in the request and a record would be returned to the client and displayed.
+            Everything was done over HTTPS secured via ACM.
         </p>
       </div>
 
@@ -101,13 +102,15 @@
       <div class="section-container">
         <h2 class="section-title">Neo4j Data Presented With React.js</h2>
         <p class="section-text">
-          This page is mostly hardcoded, but the div element below is managed by React. <br><br>
-          I have an AWS EC2 instance running a Spring REST server which is hooked up to a Neo4j graph database. 
-          The data itself is a large pool of different foods, with links between foods that pair well together.<br><br>
-          Upon initial load, this page queries the server for the full list of foods, and uses them as autocomplete 
-          suggestions in the text input field below. When the user inputs a food that matches one on the list, a 
-          fetch call is made to the server, which returns the list of pairing foods. React then updates the div
-          to display those results.
+          The element below is managed by React. <br><br>
+          A RESTful API built with Spring is sitting on an AWS EC2 instance and hooked up to a Neo4j graphical database. 
+            The database holds a large sea of nodes (foods, in this case) which are linked to each other 
+            (indicating which foods pair well).<br><br>
+          Typing a valid food into the field below triggers a GET request which returns the related foods for React to display 
+            on the fly. To avoid unnecessary requests, a list of all foods is fetched upon pageload, and GET requests are only
+            fired off if the field input matches a valid food.<br><br>
+          This page is presented to you via AWS Cloudfront and secured via an ACM certificate. The data coming from the EC2 is
+            secured via a LetsEncrypt certificate.
         </p>
       </div>
 
