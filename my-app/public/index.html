@@ -4,22 +4,26 @@
     <title>Zachary Migliorini</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <link rel="icon" type="image/png" href="icon.png" />
-    <script src="script.js"></script>
     <script src="index.js"></script>
-    <script src="app.js"></script>
   </head>
   <body>
     <div class="header">
       <h1>Zachary Migliorini</h1>
       <p>
-        New York-based software developer looking for an entry level position or
-        internship.<br /><br />
+        Full-stack software developer looking for an entry level position or
+        internship in the NYC area.<br /><br />
         I previously worked a one year full-time software engineering internship
         at Thomson Reuters, but have been working in an unrelated field since
         then.<br /><br />
-        My recent projects are various types of RESTful APIs built in Spring,
-        hooked up to a database and consumed by a client page, with everything
-        being hosted on AWS.
+        My most recent project is hosted at
+        <a
+          href="https://www.geosave.org"
+          target="_blank"
+          style="all: unset; cursor: pointer"
+          >GeoSave.org</a
+        >
+        - it is a full-stack web application bulit with Java/Spring/React/TS and
+        includes CRUD/Search operations and user logins.
       </p>
     </div>
 
@@ -29,6 +33,7 @@
         <a href="#otherwork">Other Work</a>
         <a href="#project">Projects</a>
         <a href="#contact">Contact</a>
+        <a href="https://www.geosave.org" target="_blank">GeoSave</a>
         <a href="resume_zmigliorini.pdf" target="_blank">Resume</a>
         <a href="https://www.github.com/zachmig" target="_blank">GitHub</a>
       </div>
@@ -70,57 +75,52 @@
       </div>
 
       <div class="section-container" id="project">
-        <h2 class="section-title">Basic RESTful API Demo</h2>
+        <h2 class="section-title">
+          <a
+            href="https://www.geosave.org"
+            target="_blank"
+            style="all: unset; cursor: pointer"
+          >
+            GeoSave
+          </a>
+        </h2>
         <p class="section-text">
-          <b
-            >Note: I have taken this project down from AWS and am currently
-            replacing it with something with full CRUD and user authentication. </b
-          ><br /><br />
-          This was a basic client which would send a GET request to a RESTful
-          API built with Spring which lived on an AWS EC2 hooked up to a MySQL
-          database. A lookup would be performed based on the data in the request
-          and a record would be returned to the client and displayed. Everything
-          was done over HTTPS secured via ACM.
+          GeoSave is a project I built to accompany the browser game
+          <a
+            href="https://www.geoguessr.com/"
+            target="_blank"
+            style="all: unset; cursor: pointer"
+            >GeoGuessr</a
+          >. It allows users to save and organize collections of Google Maps
+          StreetView locations. Locations can be created, updated, deleted, and
+          filtered. Users can choose to include them in one or more lists either
+          when creating the location, or at any time after. Viewing a saved
+          location displays an actual image pulled from the Google Maps Static
+          Street View API. <br /><br />
+          On the technical side, GeoSave is backed by a Spring Boot application
+          and a MySQL database which live together on an EC2. Connections to
+          this EC2 are routed via Route53 and secured by a LetsEncrypt
+          certificate covering api.geosave.org.
+          <br /><br />
+          The front-end is a React.js application written in TypeScript and
+          styled by Bootstrap. Aside from Bootstrap, Axios, and some FontAwesome
+          icons, no other third-party libraries were used. The webpage lives in
+          an S3 bucket, is delivered by Cloudfront, and secured by an ACM
+          certificate.
+          <br /><br />
+          Most of the features of the application require users to be logged in.
+          The user authentication involves issuing a JWT to each user who
+          succesfully logs in, then including this JWT with each authenticated
+          request. The Spring application keeps a cache of all currently logged
+          in users and grants access to protected API endpoints based on this
+          JWT. This is also used to ensure users cannot modifiy or delete any
+          database records they do not own.
+          <br /><br />
+          If you are interested, a demo account with some preloaded data has
+          been prepared and can be accessed with username and password of
+          "demo".
         </p>
       </div>
-
-      <div class="fetch-container">
-        <input
-          id="fetchButton"
-          class="custom-input"
-          type="submit"
-          value="Fetch"
-        />
-        <div class="table-container">
-          <table id="resultTable" border="1" class="styled-table">
-            <thead>
-              <tr>
-                <th>Country Name</th>
-                <th>Population (M)</th>
-                <th>Size (km2)</th>
-                <th>Birth Rate</th>
-                <th>Avg Elevation (m)</th>
-                <th>Landlocked</th>
-                <th>GDP (M)</th>
-                <th>Import Value (M)</th>
-                <th>Export Value (M)</th>
-                <th>Standing Army (K)</th>
-                <th>Naval Displacement (Tons)</th>
-                <th># Warplanes</th>
-                <th>Continent</th>
-                <th>Religion</th>
-                <th>Ethnicity</th>
-                <th>Language</th>
-                <th>Government</th>
-                <th>Trade Bloc</th>
-                <th>Alliance</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-        </div>
-      </div>
-
       <div class="section-container">
         <h2 class="section-title">Neo4j Data Presented With React.js</h2>
         <p class="section-text">
