@@ -2,26 +2,28 @@
 <html>
   <head>
     <title>Zachary Migliorini</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="icon" type="image/png" href="icon.png" />
     <script src="script.js"></script>
     <script src="index.js"></script>
-    <script src='app.js'></script>
+    <script src="app.js"></script>
   </head>
   <body>
-
     <div class="header">
       <h1>Zachary Migliorini</h1>
-      <p>New York-based software developer looking for an entry level position or internship.<br><br>
-      I previously worked a one year full-time software engineering internship at Thomson Reuters, 
-        but have been working in an unrelated field since then.<br><br>
-      My recent projects are various types of RESTful APIs built in Spring, hooked up to a database and consumed by a client page, 
-        with everything being hosted on AWS.
+      <p>
+        New York-based software developer looking for an entry level position or
+        internship.<br /><br />
+        I previously worked a one year full-time software engineering internship
+        at Thomson Reuters, but have been working in an unrelated field since
+        then.<br /><br />
+        My recent projects are various types of RESTful APIs built in Spring,
+        hooked up to a database and consumed by a client page, with everything
+        being hosted on AWS.
       </p>
     </div>
 
-
     <div class="content">
-
       <div class="nav" id="navbar">
         <a href="#skills">Skills</a>
         <a href="#otherwork">Other Work</a>
@@ -34,43 +36,63 @@
       <div class="section-container" id="skills">
         <h2 class="section-title">Technical Skills</h2>
         <p class="section-text">
-          I am most comfortable working in back-end Java/SQL and have been teaching myself to use Spring as well (Web, Data, Security, Test).
-          <br><br>
-          Backend work is my stronger suit, but my recent projects have all been full-stack, and so I have been learning basic front-end  
-            (React.js) and teaching myself how to hook everything up.
-          <br><br>
-          Hosting these projects has given me some exposure to the basic AWS services (EC2, S3, Route 53, ACM, Cloudfront).
+          I am most comfortable working in back-end Java/SQL and have been
+          teaching myself to use Spring as well (Web, Data, Security, Test).
+          <br /><br />
+          Backend work is my stronger suit, but my recent projects have all been
+          full-stack, and so I have been learning basic front-end (React.js) and
+          teaching myself how to hook everything up.
+          <br /><br />
+          Hosting these projects has given me some exposure to the basic AWS
+          services (EC2, S3, Route 53, ACM, Cloudfront).
         </p>
       </div>
 
       <div class="section-container" id="otherwork">
         <h2 class="section-title">Other Work</h2>
         <p class="section-text">
-          Having spent several years working in luxury goods sales, I have built a range of relevant, transferable skills that supplement my technical ability.<br><br>
-          My workdays were spent in a high-pressure environment with multiple overlapping deadlines, and so the first things I had to learn were teamwork and efficient task management. 
-          Meeting these deadlines typically involved disruptions that were out of our control, so I learned to quickly adapt to changing circumstances, and to move forward despite
-            unplanned setbacks.<br><br>
-          Working with customers made me into an effective communicator. I can filter out information that is not relevant to my audience and focus on what's
-            important.<br><br>
-          In short, I can keep a level head in any situation, understand which tasks and deadlines are most crucial, and deliver quality results as a part of any team.
+          Having spent several years working in luxury goods sales, I have built
+          a range of relevant, transferable skills that supplement my technical
+          ability.<br /><br />
+          My workdays were spent in a high-pressure environment with multiple
+          overlapping deadlines, and so the first things I had to learn were
+          teamwork and efficient task management. Meeting these deadlines
+          typically involved disruptions that were out of our control, so I
+          learned to quickly adapt to changing circumstances, and to move
+          forward despite unplanned setbacks.<br /><br />
+          Working with customers made me into an effective communicator. I can
+          filter out information that is not relevant to my audience and focus
+          on what's important.<br /><br />
+          In short, I can keep a level head in any situation, understand which
+          tasks and deadlines are most crucial, and deliver quality results as a
+          part of any team.
         </p>
       </div>
 
       <div class="section-container" id="project">
         <h2 class="section-title">Basic RESTful API Demo</h2>
         <p class="section-text">
-          <b>Note: I have taken this project down from AWS and am currently replacing it with something with full CRUD and user authentication.
-          </b><br><br>
-          This was a basic client which would send a GET request to a RESTful API built with Spring which lived on an AWS EC2 hooked up to a 
-            MySQL database. A lookup would be performed based on the data in the request and a record would be returned to the client and displayed.
-            Everything was done over HTTPS secured via ACM.
+          <b
+            >Note: I have taken this project down from AWS and am currently
+            replacing it with something with full CRUD and user authentication. </b
+          ><br /><br />
+          This was a basic client which would send a GET request to a RESTful
+          API built with Spring which lived on an AWS EC2 hooked up to a MySQL
+          database. A lookup would be performed based on the data in the request
+          and a record would be returned to the client and displayed. Everything
+          was done over HTTPS secured via ACM.
         </p>
       </div>
 
       <div class="fetch-container">
-        <input id="fetchButton" class="custom-input" type="submit" value="Fetch"/>
+        <input
+          id="fetchButton"
+          class="custom-input"
+          type="submit"
+          value="Fetch"
+        />
         <div class="table-container">
-          <table id="resultTable" border=1 class="styled-table">
+          <table id="resultTable" border="1" class="styled-table">
             <thead>
               <tr>
                 <th>Country Name</th>
@@ -102,34 +124,35 @@
       <div class="section-container">
         <h2 class="section-title">Neo4j Data Presented With React.js</h2>
         <p class="section-text">
-          The element below is managed by React. <br><br>
-          A RESTful API built with Spring is sitting on an AWS EC2 instance and hooked up to a Neo4j graphical database. 
-            The database holds a large sea of nodes (foods, in this case) which are linked to each other 
-            (indicating which foods pair well).<br><br>
-          Typing a valid food into the field below triggers a GET request which returns the related foods for React to display 
-            on the fly. To avoid unnecessary requests, a list of all foods is fetched upon pageload, and GET requests are only
-            fired off if the field input matches a valid food.<br><br>
-          This page is presented to you via AWS Cloudfront and secured via an ACM certificate. The data coming from the EC2 is
-            secured via a LetsEncrypt certificate.
+          The element below is managed by React. <br /><br />
+          A RESTful API built with Spring is sitting on an AWS EC2 instance and
+          hooked up to a Neo4j graphical database. The database holds a large
+          sea of nodes (foods, in this case) which are linked to each other
+          (indicating which foods pair well).<br /><br />
+          Typing a valid food into the field below triggers a GET request which
+          returns the related foods for React to display on the fly. To avoid
+          unnecessary requests, a list of all foods is fetched upon pageload,
+          and GET requests are only fired off if the field input matches a valid
+          food.<br /><br />
+          This page is presented to you via AWS Cloudfront and secured via an
+          ACM certificate. The data coming from the EC2 is secured via a
+          LetsEncrypt certificate.
         </p>
       </div>
 
       <div class="section-container" id="react-root">
-        <h2 class="section-title">
-        </h2>
-        <div class="section-text" id="resultsContainer">
-        </div>
+        <h2 class="section-title"></h2>
+        <div class="section-text" id="resultsContainer"></div>
       </div>
 
       <div class="section-container" id="contact">
         <h2 class="section-title">Contact</h2>
         <p class="section-text">
-          <a href="mailto: zmigliorini@gmail.com" class="email">zmigliorini@gmail.com</a>
+          <a href="mailto: zmigliorini@gmail.com" class="email"
+            >zmigliorini@gmail.com</a
+          >
         </p>
       </div>
-
     </div>
   </body>
 </html>
-
-
